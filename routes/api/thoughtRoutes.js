@@ -3,8 +3,8 @@ const {
     getThoughts,
     getSingleThought,
     createThought,
-    // deleteUser,
-    // updateUser, 
+    deleteThought,
+    updateThought, 
   } = require('../../controllers/thoughtController');
 
   // /api/thought
@@ -14,7 +14,8 @@ router.route('/')
 
 // /api/thought/:thoughtId
 router.route('/:thoughtId')
-// .get(getSingleThought)
-// .delete(deleteUser).put(updateUser);
+.get(getSingleThought)
+.put(updateThought)
+.delete(deleteThought);
 
 module.exports = router;
