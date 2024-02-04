@@ -5,7 +5,7 @@ module.exports = {
   //Get all thoughts
   async getThoughts(req, res) {
     try {
-      const thoughts = await Thought.find();
+      const thoughts = await Thought.find({});
 
       res.json(thoughts);
     } catch (err) {
@@ -61,6 +61,34 @@ module.exports = {
     } catch (err) {
       res.status(500).json(err);
 
+    }
+  }, 
+
+  async createReaction(req, res){
+    try {
+      const thoughtWithReaction =await Thought.findOneAndUpdate(
+        {_id: req.params.thoughtId},
+        {$addToSet: { reaction: req.body }},
+        { runValidators: true, new: true }
+
+      )
+      res.json(thoughtWithReaction)
+    } catch (err) {
+      res.status(500).json(err);
+      
+    }
+  }, 
+  async deleteReaction(req, res){
+    try {
+      const thoughtWithoutReaction = await Thought.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { runValidators: true, new: true }
+      )
+      res.json(thoughtWithoutReaction)
+    } catch (err) {
+      res.status(500).json(err);
+      
     }
   }
 }
