@@ -20,7 +20,7 @@
 1. [License](#license)
 1. [Contributing](#contributing)
 1. [Tests](#tests)
-1. [Questions](#tests)
+1. [Questions](#questions)
 
 ## Installation
 Run the server, open Insomnia. Perform CRUD operations.
@@ -43,9 +43,18 @@ You can see my GitHub accounts here:
 
 
 
->![Screenshot1](<images/Screenshot 1.png>) 
->![Screenshot2](<images/Screenshot 2.png>) 
->![Screenshot3](<images/Screenshot 3.png>)
->![Screenshot4](<images/Screenshot 4.png>)
->![Screenshot5](<images/Screenshot 5.png>)
->![Screenshot6](<images/Screenshot 6.png>)
+
+>![Get All Users](<Images/1. GetAllUsers.png>)
+>![Get User By Id](<Images/2. GetUserById.png>)
+>![Create User](<Images/3. CreateUser.png>)
+>![Update User](<Images/4. UpdateUser.png>)
+>![Delete User](<Images/5. DeleteUser.png>)
+>![Delete User](<Images/5a. DeleteUser.png>)
+>![Add Friend](<Images/6. AddFriend.png>)
+>![Remove Friend](<Images/7. RemoveFriend.png>)
+>![Get All Thoughts](<Images/8. GetAllThoughts.png>)
+>![Get Thought by Id](<Images/9. GetThoughtById.png>)
+>![Create Thought](<Images/10. CreateThought.png>)
+>![Delete Thought](<Images/11. DeleteThought.png>)
+>![Update Thought](<Images/12. UpdateThought.png>)
+>![Create Reaction](<Images/13. CreateReaction.png>)
