@@ -65,6 +65,7 @@ module.exports = {
   }, 
 
   async createReaction(req, res){
+    
     try {
       const thoughtWithReaction =await Thought.findOneAndUpdate(
         {_id: req.params.thoughtId},
@@ -74,19 +75,20 @@ module.exports = {
       )
       res.json(thoughtWithReaction)
     } catch (err) {
+      console.log("Error creating reaction: ", err)
       res.status(500).json(err);
-      
     }
   }, 
   async deleteReaction(req, res){
     try {
       const thoughtWithoutReaction = await Thought.findOneAndUpdate(
         { _id: req.params.userId },
-        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { $pull: { reactions: { _id: req.params.reactionId } } },
         { runValidators: true, new: true }
       )
       res.json(thoughtWithoutReaction)
     } catch (err) {
+      console.log("Failed deleting reaction: ", err)
       res.status(500).json(err);
       
     }

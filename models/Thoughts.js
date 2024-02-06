@@ -1,10 +1,10 @@
-const { Schema, model, default: mongoose } = require('mongoose');
+const { Schema, model, default: mongoose, Types } = require('mongoose');
 
 const reactionSchema = new Schema(
     {
         reactionId: {
             type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
+            default: Types.ObjectId,
         },
         reactionBody: {
             type: String,
@@ -27,12 +27,9 @@ const reactionSchema = new Schema(
             virtuals: true,
             getters: true
         },
-        id: false,
+        // id: false,
     }
 );
-reactionSchema.virtual('reactionCount').get(function(){
-    return this.reaction.length;
-})
 
 const thoughtSchema = new Schema(
     {
@@ -59,10 +56,13 @@ const thoughtSchema = new Schema(
             virtuals: true,
             getters: true
         },
-        id: false,
+        // id: false,
     }
 );
 
+thoughtSchema.virtual('reactionCount').get(function(){
+    return this.reaction.length;
+})
 
 
 const Thought = model('Thought', thoughtSchema);
